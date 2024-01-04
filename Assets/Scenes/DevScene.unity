@@ -316,6 +316,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef7733a7f6ed5b84fad1be0f368ba817, type: 2}
   BlockPrefabParent: {fileID: 773834653}
   PuyoPrefabParent: {fileID: 1377290238}
+  SpawnPointPuyo: {x: 4, y: 11}
   BlockPrefab: {fileID: 3209269870686084200, guid: 7298a8c40071bf441909708b6b671a07, type: 3}
   PuyoPrefab: {fileID: 8844994884696825045, guid: 858252001139d38439f787b46c6120cb, type: 3}
   ValueBetweenBlocks: 0.32

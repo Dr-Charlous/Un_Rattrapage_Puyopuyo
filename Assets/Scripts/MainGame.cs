@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Object", menuName = "ScriptableObjects/Puyo", order = 1)]
 public class PuyoSprites : ScriptableObject
 {
+    public Color color;
     public Sprite[] sprite;
 }
 
@@ -17,10 +18,13 @@ public class MainGame : MonoBehaviour
     public Transform BlockPrefabParent;
     public Transform PuyoPrefabParent;
     [Header("")]
+    public Vector2 SpawnPointPuyo = new Vector2(4, 11);
+    [Header("")]
     public GameObject BlockPrefab;
     public GameObject PuyoPrefab;
     public GameObject[,] PuyoGridPosition;
     [Header("")]
+    public bool[,] ComboGridPosition;
     public float ValueBetweenBlocks = 0.32f;
     public float timeBetweenFall = 3f;
 
@@ -42,39 +46,109 @@ public class MainGame : MonoBehaviour
         #region setData
         PuyoGridFace = new PuyoSprites[8, 12];
         PuyoGridPosition = new GameObject[8, 12];
+        ComboGridPosition = new bool[8, 12];
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0;i <= 7;i++)
         {
-            PuyoGridFace[i, 5] = sprites[0];
-            PuyoGridPosition[i, 5] = Instantiate(PuyoPrefab, new Vector3(i * ValueBetweenBlocks, 5 * ValueBetweenBlocks, 0), Quaternion.identity, PuyoPrefabParent);
+            for(int j = 0;j <= 11;j++)
+            {
+                ComboGridPosition[i, j] = false;
+            }
         }
         #endregion
 
         StartCoroutine(LoopFall(timeBetweenFall));
     }
 
+    void CreatePuyo(int x, int y)
+    {
+        PuyoGridFace[x, y] = sprites[0];
+        PuyoGridPosition[x, y] = Instantiate(PuyoPrefab, new Vector3(x * ValueBetweenBlocks, y * ValueBetweenBlocks, 0), Quaternion.identity, PuyoPrefabParent);
+    }
+
+    public int ComboCheck(int x, int y, int width, int height, Color color, int iteration)
+    {
+        if (x < width && x >= 0 && y >= 0 && y < height)
+        {
+            if (PuyoGridFace[x, y] != null)
+            {
+                if (ComboGridPosition[x, y] == false && color == PuyoGridFace[x, y].color)
+                {
+                    ComboGridPosition[x, y] = true;
+                    iteration++;
+
+                    iteration = ComboCheck(x + 1, y, width, height, color, iteration);
+                    iteration = ComboCheck(x - 1, y, width, height, color, iteration);
+                    iteration = ComboCheck(x, y + 1, width, height, color, iteration);
+                    iteration = ComboCheck(x, y - 1, width, height, color, iteration);
+                }
+            }
+        }
+        return iteration;
+    }
+
     public IEnumerator LoopFall(float timeBetweenFall)
     {
-        for (float j = 0; j <= 11 * ValueBetweenBlocks; j += ValueBetweenBlocks)
+        bool NoOneMove = true;
+
+        for (float j = 0; j <= 12 * ValueBetweenBlocks; j += ValueBetweenBlocks)
         {
             for (float i = 0; i <= 8 * ValueBetweenBlocks; i += ValueBetweenBlocks)
             {
-                if ((PuyoGridFace[(int)(i / ValueBetweenBlocks), (int)(j / ValueBetweenBlocks)] != null) && ((int)(j / ValueBetweenBlocks) - 1 >= 0) && PuyoGridFace[(int)(i / ValueBetweenBlocks), (int)(j / ValueBetweenBlocks) - 1] == null)
-                {
-                    PuyoGridFace[(int)(i / ValueBetweenBlocks), (int)(j / ValueBetweenBlocks) - 1] = PuyoGridFace[(int)(i / ValueBetweenBlocks), (int)(j / ValueBetweenBlocks)];
+                int xPos = (int)(i / ValueBetweenBlocks);
+                int yPos = (int)(j / ValueBetweenBlocks);
 
-                    PuyoGridFace[(int)(i / ValueBetweenBlocks), (int)(j / ValueBetweenBlocks)] = null;
+                if ((PuyoGridFace[xPos, yPos] != null)) {
 
-                    PuyoGridPosition[(int)(i / ValueBetweenBlocks), (int)(j / ValueBetweenBlocks) - 1] = PuyoGridPosition[(int)(i / ValueBetweenBlocks), (int)(j / ValueBetweenBlocks)];
+                    if ((yPos - 1 >= 0) && PuyoGridFace[xPos, yPos - 1] == null)
+                    {
+                        PuyoGridFace[xPos, yPos - 1] = PuyoGridFace[xPos, (int)(j / ValueBetweenBlocks)];
 
-                    PuyoGridPosition[(int)(i / ValueBetweenBlocks), (int)(j / ValueBetweenBlocks)].transform.position += Vector3.down * ValueBetweenBlocks;
-
-                    PuyoGridPosition[(int)(i / ValueBetweenBlocks), (int)(j / ValueBetweenBlocks)] = null;
+                        PuyoGridFace[xPos, yPos] = null;
 
 
-                    Debug.Log($"x: {(int)(i / ValueBetweenBlocks)} / y: {(int)(j / ValueBetweenBlocks)}");
+                        PuyoGridPosition[xPos, yPos - 1] = PuyoGridPosition[xPos, yPos];
+
+                        PuyoGridPosition[xPos, yPos].transform.position += Vector3.down * ValueBetweenBlocks;
+
+                        PuyoGridPosition[xPos, yPos] = null;
+
+                        //Debug.Log($"x: {xPos} / y: {yPos}");
+                        NoOneMove = false;
+                    }
+                    else
+                    {
+                        int combo = ComboCheck(xPos, yPos, 8, 12, PuyoGridFace[xPos, yPos].color, 0);
+
+                        Debug.Log(combo);
+
+                        if (combo > 1)
+                        {
+                            for (float jj = 0; jj <= 11 * ValueBetweenBlocks; jj += ValueBetweenBlocks)
+                            {
+                                for (float ii = 0; ii <= 8 * ValueBetweenBlocks; ii += ValueBetweenBlocks)
+                                {
+                                    int xPoss = (int)(ii / ValueBetweenBlocks);
+                                    int yPoss = (int)(jj / ValueBetweenBlocks);
+
+                                    if (ComboGridPosition[xPoss, yPoss] == true)
+                                    {
+                                        PuyoGridFace[xPos, yPos] = null;
+                                        Destroy(PuyoGridPosition[xPos, yPos]);
+                                        PuyoGridPosition[xPos, yPos] = null;
+                                        ComboGridPosition[xPoss, yPoss] = false;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
+        }
+
+        if (NoOneMove == true && PuyoGridFace[(int)SpawnPointPuyo.x, (int)SpawnPointPuyo.y] == null)
+        {
+            CreatePuyo((int)SpawnPointPuyo.x, (int)SpawnPointPuyo.y);
         }
 
         yield return new WaitForSeconds(timeBetweenFall);
