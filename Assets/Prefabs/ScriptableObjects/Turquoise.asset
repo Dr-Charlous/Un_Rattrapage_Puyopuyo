@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Turquoise
+  m_EditorClassIdentifier: Assembly-CSharp::PuyoSprites
+  sprite:
+  - {fileID: 1234319163, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -244494416, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 433606170, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -1971989468, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -432695882, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1412719109, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 657068559, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1467114514, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -270006778, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -1266728914, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1783635810, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1681599530, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 773759169, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 782962601, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1720016858, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1731957734, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}

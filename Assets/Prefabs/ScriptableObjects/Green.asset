@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Green
+  m_EditorClassIdentifier: Assembly-CSharp::PuyoSprites
+  sprite:
+  - {fileID: 1549756186, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1894204075, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 141376543, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 2125587763, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -880674488, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -663557268, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1169053480, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -107173341, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 73018506, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -959532333, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -552567031, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -1824035777, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: -1132339549, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 787926121, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1953923268, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - {fileID: 1833768196, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
