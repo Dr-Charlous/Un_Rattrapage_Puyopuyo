@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Green
   m_EditorClassIdentifier: Assembly-CSharp::PuyoSprites
-  color: {r: 0.12300229, g: 1, b: 0, a: 1}
   sprite:
   - {fileID: 1549756186, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
   - {fileID: 1894204075, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}

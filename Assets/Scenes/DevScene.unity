@@ -319,8 +319,14 @@ MonoBehaviour:
   SpawnPointPuyo: {x: 4, y: 11}
   BlockPrefab: {fileID: 3209269870686084200, guid: 7298a8c40071bf441909708b6b671a07, type: 3}
   PuyoPrefab: {fileID: 8844994884696825045, guid: 858252001139d38439f787b46c6120cb, type: 3}
+  ActualPuyo: {fileID: 0}
+  IsMoved: 0
+  Height: 12
+  Width: 8
   ValueBetweenBlocks: 0.32
-  timeBetweenFall: 0.5
+  Range: 1
+  ComboRange: 20
+  timeBetweenFall: 2
 --- !u!4 &2064707273
 Transform:
   m_ObjectHideFlags: 0
