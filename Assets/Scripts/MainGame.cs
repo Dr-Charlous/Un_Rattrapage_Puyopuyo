@@ -28,8 +28,11 @@ public class MainGame : MonoBehaviour
     public bool[,] ComboGridPosition;
     public int Height = 12;
     public int Width = 8;
+    [Range(1, 7)]
+    public int Range = 7;
     public float ValueBetweenBlocks = 0.32f;
-    public float timeBetweenFall = 3f;
+    [Range(1, 10)]
+    public int timeBetweenFall = 5;
 
     private void Start()
     {
@@ -60,56 +63,63 @@ public class MainGame : MonoBehaviour
         }
         #endregion
 
-        CreatePuyo((int)SpawnPointPuyo.x, (int)SpawnPointPuyo.y);
-        StartCoroutine(LoopFall(timeBetweenFall));
+        CreatePuyo((int)SpawnPointPuyo.x, (int)SpawnPointPuyo.y, Range);
+        StartCoroutine(LoopFall(timeBetweenFall/10f));
     }
 
     private void Update()
     {
-        if (IsMoved == false)
+        if (IsMoved == false && ActualPuyo != null)
         {
             int xPos = (int)(Mathf.Abs(ActualPuyo.transform.position.x / ValueBetweenBlocks));
             int yPos = (int)(Mathf.Abs(ActualPuyo.transform.position.y / ValueBetweenBlocks));
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (xPos + 1 < Width && PuyoGridFace[xPos + 1, yPos] == null)
-                {
-                    Debug.Log("start right");
-                    PuyoGridFace[xPos + 1, yPos] = PuyoGridFace[xPos, yPos];
-                    PuyoGridFace[xPos, yPos] = null;
-
-                    PuyoGridPosition[xPos + 1, yPos] = PuyoGridPosition[xPos, yPos];
-                    ActualPuyo.transform.position = new Vector3((xPos + 1) * ValueBetweenBlocks, yPos * ValueBetweenBlocks, 0);
-                    PuyoGridPosition[xPos, yPos] = null;
-                }
-                Debug.Log("end right");
+                Move(xPos, yPos, 1);
             }
 
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                if (xPos - 1 >= 0 && PuyoGridFace[xPos - 1, yPos] == null)
-                {
-                    Debug.Log("start left");
-                    PuyoGridFace[xPos - 1, yPos] = PuyoGridFace[xPos, yPos];
-                    PuyoGridFace[xPos, yPos] = null;
-
-                    PuyoGridPosition[xPos - 1, yPos] = PuyoGridPosition[xPos, yPos];
-                    ActualPuyo.transform.position = new Vector3((xPos - 1) * ValueBetweenBlocks, yPos * ValueBetweenBlocks, 0);
-                    PuyoGridPosition[xPos, yPos] = null;
-                }
-                Debug.Log("end left");
+                Move(xPos, yPos, -1);
             }
         }
     }
 
-    void CreatePuyo(int x, int y)
+    void Move(int xPos, int yPos, int value)
     {
-        PuyoGridFace[x, y] = sprites[0];
-        ActualPuyo = Instantiate(PuyoPrefab, new Vector3(x * ValueBetweenBlocks, y * ValueBetweenBlocks, 0), Quaternion.identity, PuyoPrefabParent);
-        PuyoGridPosition[x, y] = ActualPuyo;
+        if (xPos + value < Width && PuyoGridFace[xPos + value, yPos] == null)
+        {
+            PuyoGridFace[xPos + value, yPos] = PuyoGridFace[xPos, yPos];
+            PuyoGridFace[xPos, yPos] = null;
+
+            PuyoGridPosition[xPos + value, yPos] = PuyoGridPosition[xPos, yPos];
+            ActualPuyo.transform.position = new Vector3((xPos + value) * ValueBetweenBlocks, yPos * ValueBetweenBlocks, 0);
+            PuyoGridPosition[xPos, yPos] = null;
+        }
     }
 
+    void CreatePuyo(int x, int y, int range)
+    {
+        int valueSprite = 0;
+
+        if (range <= sprites.Length)
+        {
+            valueSprite = Random.Range(0, range);
+        }
+        else
+        {
+            valueSprite = Random.Range(0, sprites.Length);
+        }
+
+        PuyoGridFace[x, y] = sprites[valueSprite];
+        ActualPuyo = Instantiate(PuyoPrefab, new Vector3(x * ValueBetweenBlocks, y * ValueBetweenBlocks, 0), Quaternion.identity, PuyoPrefabParent);
+        PuyoGridPosition[x, y] = ActualPuyo;
+
+        ActualPuyo.GetComponent<SpriteRenderer>().sprite = sprites[valueSprite].sprite[0];
+    }
+
+    #region Combo
     public int ComboCheck(int x, int y, int width, int height, PuyoSprites sprites, int iteration)
     {
         if (x < width && x >= 0 && y >= 0 && y < height)
@@ -176,7 +186,9 @@ public class MainGame : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region Fall
     public void Fall()
     {
         bool NoOneMove = true;
@@ -210,18 +222,25 @@ public class MainGame : MonoBehaviour
 
         if (NoOneMove == true && PuyoGridFace[(int)SpawnPointPuyo.x, (int)SpawnPointPuyo.y] == null)
         {
-            CreatePuyo((int)SpawnPointPuyo.x, (int)SpawnPointPuyo.y);
+            Combo();
+            CreatePuyo((int)SpawnPointPuyo.x, (int)SpawnPointPuyo.y, Range);
         }
     }
 
-    public IEnumerator LoopFall(float timeBetweenFall)
+    public IEnumerator LoopFall(float timeBetweenFalling)
     {
         IsMoved = true;
-        Combo();
         Fall();
         IsMoved = false;
 
-        yield return new WaitForSeconds(timeBetweenFall);
-        StartCoroutine(LoopFall(timeBetweenFall));
+        yield return new WaitForSeconds(timeBetweenFalling);
+
+        if (timeBetweenFalling != timeBetweenFall/10f)
+        {
+            timeBetweenFalling = timeBetweenFall/10f;
+        }
+
+        StartCoroutine(LoopFall(timeBetweenFalling));
     }
+    #endregion
 }
