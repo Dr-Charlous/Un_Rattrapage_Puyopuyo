@@ -164,15 +164,15 @@ public class MainGame : MonoBehaviour
                         }
 
                     }
-                }
-            }
-        }
 
-        for (int i = 0; i < Width; i++)
-        {
-            for (int j = 0; j < Height; j++)
-            {
-                ComboGridPosition[i, j] = false;
+                    for (int iii = 0; iii < Width; iii++)
+                    {
+                        for (int jjj = 0; jjj < Height; jjj++)
+                        {
+                            ComboGridPosition[iii, jjj] = false;
+                        }
+                    }
+                }
             }
         }
     }
