@@ -4,6 +4,8 @@ using System.Drawing;
 using UnityEngine;
 using DG.Tweening;
 using static UnityEditor.ShaderData;
+using TMPro;
+using Unity.VisualScripting;
 
 [CreateAssetMenu(fileName = "Object", menuName = "ScriptableObjects/Puyo", order = 1)]
 public class PuyoSprites : ScriptableObject
@@ -66,6 +68,7 @@ public class MainGame : MonoBehaviour
     public GameObject BlockPrefab;
     public GameObject PuyoPrefab;
     public GameObject ActualPuyo;
+    public GameObject ComboFeedBack;
     public GameObject[,] PuyoGridPosition;
     [Header("")]
     public bool IsMoved = false;
@@ -108,6 +111,8 @@ public class MainGame : MonoBehaviour
                 ComboGridPosition[i, j] = false;
             }
         }
+
+        ComboFeedBack.SetActive(false);
         #endregion setData
 
         CreatePuyo((int)SpawnPointPuyo.x, (int)SpawnPointPuyo.y, Range);
@@ -211,7 +216,8 @@ public class MainGame : MonoBehaviour
                     if (combo > ComboRange)
                     {
                         Combo = true;
-                        ComboCount++;
+
+                        StartCoroutine(ComboEffectFeedBack(Mathf.Abs(combo - 1 - ComboCount)));
 
                         for (float jj = 0; jj < Height * ValueBetweenBlocks; jj += ValueBetweenBlocks)
                         {
@@ -240,7 +246,9 @@ public class MainGame : MonoBehaviour
         }
 
         if (!Combo)
+        {
             ComboCount = 0;
+        }
 
         return Combo;
     }
@@ -250,11 +258,23 @@ public class MainGame : MonoBehaviour
         puyo.DOPunchScale(Vector3.one, timeBetweenFall / 10f);
 
         yield return new WaitForSeconds(timeBetweenFall / 10f);
+        ComboCount++;
 
         PuyoGridFace[xPoss, yPoss] = null;
         Destroy(PuyoGridPosition[xPoss, yPoss]);
         PuyoGridPosition[xPoss, yPoss] = null;
         ComboGridPosition[xPoss, yPoss] = false;
+    }
+
+    IEnumerator ComboEffectFeedBack(int combo)
+    {
+        ComboFeedBack.SetActive(true);
+        ComboFeedBack.GetComponentInChildren<TextMeshProUGUI>().text = $"x{combo}";
+        ComboFeedBack.transform.DOPunchScale(Vector3.one, timeBetweenFall / 10f);
+
+        yield return new WaitForSeconds(timeBetweenFall / 2);
+
+        ComboFeedBack.SetActive(false);
     }
     #endregion Combo
 
@@ -280,7 +300,7 @@ public class MainGame : MonoBehaviour
                     PuyoGridPosition[xPos, yPos - 1] = PuyoGridPosition[xPos, yPos];
 
                     //PuyoGridPosition[xPos, yPos].transform.position += Vector3.down * ValueBetweenBlocks;
-                    PuyoGridPosition[xPos, yPos].transform.DOLocalMoveY(PuyoGridPosition[xPos, yPos].transform.position.y - ValueBetweenBlocks, timeBetweenFall/10f);
+                    PuyoGridPosition[xPos, yPos].transform.DOLocalMoveY(PuyoGridPosition[xPos, yPos].transform.position.y - ValueBetweenBlocks, timeBetweenFall / 10f);
 
                     PuyoGridPosition[xPos, yPos] = null;
 
