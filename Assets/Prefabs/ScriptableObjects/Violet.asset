@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Violet
   m_EditorClassIdentifier: Assembly-CSharp::PuyoSprites
-  color: {r: 0.48538494, g: 0, b: 1, a: 1}
-  sprite:
+  Sprites:
   - {fileID: -1323155548, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
   - {fileID: -2067156572, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
   - {fileID: -1241370701, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}

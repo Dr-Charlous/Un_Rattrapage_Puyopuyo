@@ -2978,21 +2978,140 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ColorGrid: {r: 0.99215686, g: 0.5176471, b: 0.23921569, a: 1}
-  sprites:
-  - sprites: {fileID: 11400000, guid: c0d180b809a4f6d4bb9b81e8edd091c1, type: 2}
-    PourcentageSpawn: 0
-  - sprites: {fileID: 11400000, guid: 44904fb547a79d846b78797e26b84f87, type: 2}
-    PourcentageSpawn: 0
-  - sprites: {fileID: 11400000, guid: 907651550befc5347bf7535ce52a65ba, type: 2}
+  Puyos:
+  - Name: Red
     PourcentageSpawn: 1
-  - sprites: {fileID: 11400000, guid: 2588c95b2b999124699ac4819ea220ef, type: 2}
+    Sprites:
+    - {fileID: -1767212612, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 2043311225, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -451593492, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1193495479, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1157029930, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1164640667, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1614582863, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -234467578, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1186094199, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1325637657, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 874904403, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1416040234, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1103260462, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 761138882, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1008429281, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -340393931, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - Name: Green
     PourcentageSpawn: 0
-  - sprites: {fileID: 11400000, guid: 6603a5c0f6acae54d86d5fc1e19a5a20, type: 2}
+    Sprites:
+    - {fileID: 1549756186, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1894204075, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 141376543, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 2125587763, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -880674488, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -663557268, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1169053480, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -107173341, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 73018506, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -959532333, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -552567031, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1824035777, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1132339549, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 787926121, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1953923268, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1833768196, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - Name: Blue
     PourcentageSpawn: 0
-  - sprites: {fileID: 11400000, guid: 5f7099d6343375648882fef73c94ff46, type: 2}
-    PourcentageSpawn: 1
-  - sprites: {fileID: 11400000, guid: ef7733a7f6ed5b84fad1be0f368ba817, type: 2}
+    Sprites:
+    - {fileID: -1449720161, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 530697554, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 16160133, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -219125729, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1085081065, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -640562307, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1270969835, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1473585126, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1225329517, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 29636659, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -787623917, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 2053117568, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 994045831, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -18957734, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1000910873, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1090776853, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - Name: Yellow
     PourcentageSpawn: 0
+    Sprites:
+    - {fileID: 1045985611, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 2004141245, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1062493219, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -449480777, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1122050898, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1410304799, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -2126930349, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 281492056, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -866895670, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1649445362, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1264915448, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -777637764, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1054664267, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1568701307, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 659969088, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1098459283, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - Name: Violet
+    PourcentageSpawn: 0
+    Sprites:
+    - {fileID: -1323155548, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -2067156572, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1241370701, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 858792490, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 2065938008, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 7120752, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -425427279, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1807107062, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1856083816, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 911596737, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1242482293, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1148768054, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 691497732, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1349861794, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1873108968, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 52301267, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - Name: Pink
+    PourcentageSpawn: 0
+    Sprites:
+    - {fileID: -1628739340, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1943875577, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 258818610, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -984434824, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 175726453, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1697297797, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -595753473, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1097316326, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1007965458, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -787029709, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1240570997, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -99355404, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 254282344, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1202897676, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 229783305, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1164261246, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+  - Name: Turquoise
+    PourcentageSpawn: 0
+    Sprites:
+    - {fileID: 1234319163, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -244494416, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 433606170, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1971989468, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -432695882, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1412719109, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 657068559, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1467114514, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -270006778, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: -1266728914, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1783635810, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1681599530, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 773759169, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 782962601, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1720016858, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
+    - {fileID: 1731957734, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
   BlockPrefabParent: {fileID: 773834653}
   PuyoPrefabParent: {fileID: 1377290238}
   BlockPrefab: {fileID: 3209269870686084200, guid: 7298a8c40071bf441909708b6b671a07, type: 3}
@@ -3012,7 +3131,7 @@ MonoBehaviour:
   Score: 0
   ScoreEnd: 100
   ComboRange: 4
-  timeBetweenFall: 2
+  timeBetweenFall: 5
 --- !u!4 &2064707273
 Transform:
   m_ObjectHideFlags: 0

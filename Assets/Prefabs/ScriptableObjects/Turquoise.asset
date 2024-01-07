@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Turquoise
   m_EditorClassIdentifier: Assembly-CSharp::PuyoSprites
-  color: {r: 0, g: 0.6882107, b: 1, a: 1}
-  sprite:
+  Sprites:
   - {fileID: 1234319163, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
   - {fileID: -244494416, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
   - {fileID: 433606170, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}

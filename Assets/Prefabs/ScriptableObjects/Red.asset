@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Red
   m_EditorClassIdentifier: Assembly-CSharp::PuyoSprites
-  sprite:
+  Sprites:
   - {fileID: -1767212612, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
   - {fileID: 2043311225, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
   - {fileID: -451593492, guid: 0d7e8b996b6e4f046b8d678055d1298d, type: 3}
