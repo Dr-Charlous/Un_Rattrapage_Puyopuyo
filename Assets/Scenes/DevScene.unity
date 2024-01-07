@@ -3011,9 +3011,8 @@ MonoBehaviour:
   TimerEnd: 60
   Score: 0
   ScoreEnd: 100
-  RangeArrayPuyo: 3
-  ComboRange: 3
-  timeBetweenFall: 3
+  ComboRange: 4
+  timeBetweenFall: 2
 --- !u!4 &2064707273
 Transform:
   m_ObjectHideFlags: 0
