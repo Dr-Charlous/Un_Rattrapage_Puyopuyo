@@ -205,7 +205,7 @@ public class MainGame : MonoBehaviour
     {
         int _totalValues = 0;
 
-        for (int i = 1; i < Puyos.Length; i++)
+        for (int i = 0; i < Puyos.Length; i++)
         {
             _totalValues += Puyos[i].PourcentageSpawn;
         }
